@@ -9,6 +9,7 @@ import Tooltip from 'react-bootstrap/Tooltip'
 import Spinner from 'react-bootstrap/Spinner'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Gallery.css'
+import Button from 'react-bootstrap/Button'
 
 const Gallery = () => {
   const [category, setCategory] = useState('')
@@ -17,7 +18,7 @@ const Gallery = () => {
 
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip">
-      <Link to={`/details:${props.id}`} state={{ data: props }}>Подробнее</Link>
+      <Link to={`/details/${props.id}`} state={{ data: props }}>Подробнее</Link>
     </Tooltip>
   );
 
@@ -48,7 +49,7 @@ const Gallery = () => {
   if (loading) {
     return (
       <div className="loader">
-        <Spinner  animation="border" variant="primary" role="status">
+        <Spinner animation="border" variant="primary" role="status">
           <span className="visually-hidden">Загрузка...</span>
         </Spinner>
       </div>

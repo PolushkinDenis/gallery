@@ -3,12 +3,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import './Details.css'
+
 const Details = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const data = location.state?.data;
-  
-  console.log(data)
+
   return (
     <div className='details'>
       {data && (
