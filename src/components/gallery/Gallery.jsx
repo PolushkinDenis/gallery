@@ -6,9 +6,7 @@ import { fetchPhotos } from "../../store/photosReducer";
 import Image from 'react-bootstrap/Image'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
-import Button from 'react-bootstrap/Button'
 import Spinner from 'react-bootstrap/Spinner'
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Gallery.css'
 
@@ -16,8 +14,6 @@ const Gallery = () => {
   const [category, setCategory] = useState('')
   const dispatch = useDispatch()
   const { photos, loading } = useSelector(state => state)
-  console.log(loading)
-  console.log(photos)
 
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip">
@@ -41,13 +37,11 @@ const Gallery = () => {
 
   useEffect(() => {
     dispatch(fetchPhotos())
-    console.log("Первый эффект")
   }, [])
 
   useEffect(() => {
     if (photos.length > 0) {
       separation(photos)
-      console.log("Второй эффект")
     }
   }, [photos])
 
@@ -58,7 +52,6 @@ const Gallery = () => {
           <span className="visually-hidden">Загрузка...</span>
         </Spinner>
       </div>
-
     )
   }
 

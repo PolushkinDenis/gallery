@@ -1,0 +1,7 @@
+.main-about h1{
+    display: flex;
+    justify-content: center;
+}
+.main-about div{
+    font-size: large;
+}

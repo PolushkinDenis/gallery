@@ -25,13 +25,9 @@ const Header = () => {
                                     className="d-inline-block align-top"
                                     alt="avatar"
                                 />
-                                <div>
-                                    Полушкин Денис
-                                </div>
+                                <div>Полушкин Денис</div>
                             </div>
-                            <div className="user-email">
-                                tigraszver@gmail.com
-                            </div>
+                            <div className="user-email">tigraszver@gmail.com</div>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse></Navbar.Brand>
