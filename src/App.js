@@ -1,9 +1,12 @@
 import './App.css';
+import { useRoutes } from './routes'
 
-function App() {
+const App = () => {
+  const routes = useRoutes()
+
   return (
-    <div className="App">
-    
+    <div>
+      {routes}
     </div>
   );
 }
