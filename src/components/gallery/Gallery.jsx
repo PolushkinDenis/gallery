@@ -7,14 +7,18 @@ import Image from 'react-bootstrap/Image'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
 import Button from 'react-bootstrap/Button'
+import Spinner from 'react-bootstrap/Spinner'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Gallery.css'
 
 const Gallery = () => {
   const [category, setCategory] = useState('')
   const dispatch = useDispatch()
-  const photos = useSelector(state => state.photos)
-  
+  const { photos, loading } = useSelector(state => state)
+  console.log(loading)
+  console.log(photos)
+
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip">
       <Link to={`/details:${props.id}`} state={{ data: props }}>Подробнее</Link>
@@ -41,11 +45,22 @@ const Gallery = () => {
   }, [])
 
   useEffect(() => {
-    if(photos.length > 0){
+    if (photos.length > 0) {
       separation(photos)
       console.log("Второй эффект")
     }
   }, [photos])
+
+  if (loading) {
+    return (
+      <div className="loader">
+        <Spinner  animation="border" variant="primary" role="status">
+          <span className="visually-hidden">Загрузка...</span>
+        </Spinner>
+      </div>
+
+    )
+  }
 
   return (
     <div>
@@ -56,17 +71,17 @@ const Gallery = () => {
           Gallery
           <div className="gallery">
             {category.map((categoryItem, index) => (
-              <div>
+              <div key={index}>
                 <p>Категория {index + 1}</p>
                 {categoryItem.map((photo) => (
-                   <OverlayTrigger
-                   placement="right"
-                   delay={{ show: 250, hide: 400 }}
-                   overlay={renderTooltip(photo)}
-                   key={photo.id}
-                 >
-                   <Image className="photo" src={photo.url}></Image>
-                 </OverlayTrigger>
+                  <OverlayTrigger
+                    placement="right"
+                    delay={{ show: 250, hide: 400 }}
+                    overlay={renderTooltip(photo)}
+                    key={photo.id}
+                  >
+                    <Image className="photo" src={photo.url}></Image>
+                  </OverlayTrigger>
                 ))}
               </div>
             ))}
