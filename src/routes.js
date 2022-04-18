@@ -9,7 +9,7 @@ export const useRoutes = () => {
         <Routes>
             <Route path="/" element={<Gallery />} />
             <Route path="/aboutMe" element={<AboutMe />} />
-            <Route path="/details" element={<Details />} />
+            <Route path="/details:id" element={<Details />} />
         </Routes>
     )
 }
