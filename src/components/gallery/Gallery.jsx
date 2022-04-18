@@ -63,16 +63,15 @@ const Gallery = () => {
   }
 
   return (
-    <div>
+    <div className="main-gallery">
       <Header />
       {category.length > 0 && (
         <main>
-          {console.log(category)}
-          Gallery
+          <h1>Gallery</h1>
           <div className="gallery">
             {category.map((categoryItem, index) => (
               <div key={index}>
-                <p>Категория {index + 1}</p>
+                <h2>Категория {index + 1}</h2>
                 {categoryItem.map((photo) => (
                   <OverlayTrigger
                     placement="right"

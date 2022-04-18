@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-
+import './Details.css'
 const Details = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -10,9 +10,9 @@ const Details = () => {
   
   console.log(data)
   return (
-    <>
+    <div className='details'>
       {data && (
-        <Card style={{ width: '20rem' }}>
+        <Card  style={{ width: '30rem' }}>
           <Card.Img variant="top" src={data.url} />
           <Card.Body>
             <Card.Title>Информация о картинке №{data.id}</Card.Title>
@@ -26,7 +26,7 @@ const Details = () => {
           </Card.Body>
         </Card>
       )}
-    </>
+    </div>
   );
 }
 

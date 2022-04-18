@@ -1,3 +1,7 @@
+.main-gallery h1{
+    display: flex;
+    justify-content: center;
+}
 .gallery{
     display: flex;
     flex-direction: row;
